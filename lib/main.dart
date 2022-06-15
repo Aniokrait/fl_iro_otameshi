@@ -2,6 +2,8 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:iroiro_flutter_tameshi/camera.dart';
 
+import 'native_camera.dart';
+
 late List<CameraDescription> _cameras;
 
 Future<void> main() async {
@@ -13,9 +15,10 @@ Future<void> main() async {
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),
-      home: TakePictureScreen(
-        camera: firstCamera,
-      ),
+      // home: TakePictureScreen(
+      //   camera: firstCamera,
+      // ),
+      home: NativeCamera(),
     ),
   );
 }

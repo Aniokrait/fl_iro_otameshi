@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1059052280939",
+    "project_id": "flutter-otameshi",
+    "storage_bucket": "flutter-otameshi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059052280939:android:939aec92b781d69e1fe52e",
+        "android_client_info": {
+          "package_name": "com.example.iroiro_flutter_tameshi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059052280939-ohm6vetj5f16h7jkn0s9chi9k4ftc0qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAbbKNbMC3Em6QtGw3bArIjSzHBsNjBMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059052280939-ohm6vetj5f16h7jkn0s9chi9k4ftc0qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
