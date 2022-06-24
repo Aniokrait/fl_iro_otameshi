@@ -1,7 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:iroiro_flutter_tameshi/camera.dart';
+import 'package:firebase_core/firebase_core.dart';
 
+import 'firebase_options.dart';
+import 'login.dart';
 import 'native_camera.dart';
 
 late List<CameraDescription> _cameras;
@@ -12,13 +14,24 @@ Future<void> main() async {
   final cameras = await availableCameras();
   final firstCamera = cameras.first;
 
+  //firebase_auth用の初期化
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  try {
+    var a = Firebase.app();
+  } catch (e) {
+    print(e);
+  }
+
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),
       // home: TakePictureScreen(
       //   camera: firstCamera,
       // ),
-      home: NativeCamera(),
+      home: const LoginScreen(),
     ),
   );
 }

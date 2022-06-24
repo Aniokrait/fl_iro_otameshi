@@ -29,6 +29,13 @@
             {
               "client_id": "1059052280939-ohm6vetj5f16h7jkn0s9chi9k4ftc0qt.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1059052280939-rtinou687n3eiqvamg14vgtjku9ol9p8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.iroiroFlutterTameshi"
+              }
             }
           ]
         }
