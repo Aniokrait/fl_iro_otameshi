@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -12,7 +15,13 @@ Future<void> main() async {
   //利用可能なカメラを取得する
   WidgetsFlutterBinding.ensureInitialized();
   final cameras = await availableCameras();
-  final firstCamera = cameras.first;
+
+  //iosのエミュレータはカメラがないので、カメラを取得できない。
+  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+  IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+  if(Platform.isAndroid || (Platform.isIOS && iosInfo.isPhysicalDevice)) {
+    final firstCamera = cameras.first;
+  }
 
   //firebase_auth用の初期化
   await Firebase.initializeApp(
