@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -43,6 +44,38 @@ class LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  //ボトムシートを表示する
+  void showBottomSheet() {
+    showMaterialModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return SafeArea( //SafeAreaで下のバーと重ならないようにする
+          top: false,  //ただし←これがないと上に余計な余白が出る
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.abc),
+                title: const Text('aaa'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.add_card),
+                title: const Text('bbb'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.alarm_on_sharp),
+                title: const Text('ccc'),
+                onTap: () {},
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +109,10 @@ class LoginScreenState extends State<LoginScreen> {
               ElevatedButton(
                 onPressed: () => createUser(),
                 child: const Text("ユーザ作成"),
+              ),
+              ElevatedButton(
+                onPressed: () => showBottomSheet(),
+                child: const Text("出でよ、ボトムシート！"),
               ),
             ],
           ),

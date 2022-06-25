@@ -28,12 +28,6 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  try {
-    var a = Firebase.app();
-  } catch (e) {
-    print(e);
-  }
-
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),
