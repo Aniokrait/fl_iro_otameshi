@@ -4,7 +4,9 @@ import 'package:camera/camera.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutterfire_ui/i10n.dart';
 
+import 'auth_gate.dart';
 import 'firebase_options.dart';
 import 'login.dart';
 import 'native_camera.dart';
@@ -19,7 +21,7 @@ Future<void> main() async {
   //iosのエミュレータはカメラがないので、カメラを取得できない。
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
   IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-  if(Platform.isAndroid || (Platform.isIOS && iosInfo.isPhysicalDevice)) {
+  if (Platform.isAndroid || (Platform.isIOS && iosInfo.isPhysicalDevice)) {
     final firstCamera = cameras.first;
   }
 
@@ -30,11 +32,23 @@ Future<void> main() async {
 
   runApp(
     MaterialApp(
+      localizationsDelegates: [
+        // Delegates below take care of built-in flutter widgets
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+
+        // This delegate is required to provide the labels that are not overridden by LabelOverrides
+        FlutterFireUILocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''), // 英語
+        Locale('ja', ''),
+      ],
       theme: ThemeData.dark(),
       // home: TakePictureScreen(
       //   camera: firstCamera,
       // ),
-      home: const LoginScreen(),
+      home: const AuthGate(),
     ),
   );
 }

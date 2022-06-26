@@ -41,6 +41,7 @@ dependencies:
   firebase_auth: ^3.3.19
   device_info_plus: ^4.0.0
   modal_bottom_sheet: ^2.0.1
+  flutterfire_ui: ^0.4.2
 
 dev_dependencies:
   flutter_test:

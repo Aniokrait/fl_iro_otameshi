@@ -114,6 +114,10 @@ class LoginScreenState extends State<LoginScreen> {
                 onPressed: () => showBottomSheet(),
                 child: const Text("出でよ、ボトムシート！"),
               ),
+              ElevatedButton(
+                onPressed: () => FirebaseAuth.instance.signOut(),
+                child: const Text("ログアウト"),
+              ),
             ],
           ),
         ),
