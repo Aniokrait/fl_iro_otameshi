@@ -7,6 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterfire_ui/i10n.dart';
 
 import 'auth_gate.dart';
+import 'bottom_nav_bar_screen.dart';
 import 'firebase_options.dart';
 import 'login.dart';
 import 'native_camera.dart';
@@ -40,15 +41,15 @@ Future<void> main() async {
         // This delegate is required to provide the labels that are not overridden by LabelOverrides
         FlutterFireUILocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en', ''), // 英語
-        Locale('ja', ''),
-      ],
+      // supportedLocales: const [
+      //   Locale('en', ''), // 英語
+      //   Locale('ja', ''),
+      // ],
       theme: ThemeData.dark(),
       // home: TakePictureScreen(
       //   camera: firstCamera,
       // ),
-      home: const AuthGate(),
+      home: const BottomNavBarScreen(),
     ),
   );
 }
