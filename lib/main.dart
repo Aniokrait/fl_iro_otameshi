@@ -5,12 +5,15 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterfire_ui/i10n.dart';
+import 'package:iroiro_flutter_tameshi/riverpod/todo_list.dart';
 
 import 'auth_gate.dart';
 import 'bottom_nav_bar_screen.dart';
 import 'firebase_options.dart';
 import 'login.dart';
 import 'native_camera.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 late List<CameraDescription> _cameras;
 
@@ -32,7 +35,18 @@ Future<void> main() async {
   );
 
   runApp(
-    MaterialApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
+}
+
+class MyApp extends ConsumerWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp(
       localizationsDelegates: [
         // Delegates below take care of built-in flutter widgets
         GlobalMaterialLocalizations.delegate,
@@ -49,7 +63,7 @@ Future<void> main() async {
       // home: TakePictureScreen(
       //   camera: firstCamera,
       // ),
-      home: const BottomNavBarScreen(),
-    ),
-  );
+      home: TodoListView(),
+    );
+  }
 }
